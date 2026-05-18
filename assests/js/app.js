@@ -44,7 +44,7 @@ function onTodoUpdate(){
   todoArr[GET_INDEX]=UPDATE_OBJ;
 
    let li = document.getElementById(UPDATE_ID).firstElementChild;
-   li.innerText = UPDATE_OBJ.todoItemControl;
+   li.innerText = UPDATE_OBJ.todoItem;
 
     todoForm.reset();
     addTodoBtn.classList.remove('d-none');
