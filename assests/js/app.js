@@ -34,15 +34,6 @@ function templating(arr){
 templating(todoArr)
 
 
-let EDIT_ID;
-function OnEdit(ele){
-  EDIT_ID=ele.closest('li').id
-  let EDIT_OBJ=todoArr.find(t=>t.todoId===EDIT_ID);
-  todoItemControl.value =EDIT_OBJ.todoItem;
-
-  addTodoBtn.classList.add('d-none');
-  updateTodoBtn.classList.remove('d-none');
-}
 function onTodoUpdate(){
   let UPDATE_ID=EDIT_ID;
   let UPDATE_OBJ={
