@@ -32,4 +32,13 @@ function templating(arr){
   todocontainer.innerHTML =result;
 }
 
+function OnEdit(ele){
+  let GET_ID=ele.closest('li').id
+  let EDIT_OBJ=todoArr.find(t=>t.todoId===GET_ID);
+  todoItemControl.value =EDIT_OBJ.todoItem;
+
+  addTodoBtn.classList.add('d-none');
+  updateTodoBtn.classList.remove('d-none');
+}
+
 templating(todoArr)
