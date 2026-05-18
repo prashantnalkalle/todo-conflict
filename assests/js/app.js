@@ -31,14 +31,45 @@ function templating(arr){
 
   todocontainer.innerHTML =result;
 }
+templating(todoArr)
 
+
+let EDIT_ID;
 function OnEdit(ele){
-  let GET_ID=ele.closest('li').id
-  let EDIT_OBJ=todoArr.find(t=>t.todoId===GET_ID);
+  EDIT_ID=ele.closest('li').id
+  let EDIT_OBJ=todoArr.find(t=>t.todoId===EDIT_ID);
   todoItemControl.value =EDIT_OBJ.todoItem;
 
   addTodoBtn.classList.add('d-none');
   updateTodoBtn.classList.remove('d-none');
 }
+function onTodoUpdate(){
+  let UPDATE_ID=EDIT_ID;
+  let UPDATE_OBJ={
+      todoItem:todoItemControl.value,
+      todoId:UPDATE_ID
+  }
+  let GET_INDEX=todoArr.findIndex(t=>t.todoId===UPDATE_ID);
+  todoArr[GET_INDEX]=UPDATE_OBJ;
 
-templating(todoArr)
+   let li = document.getElementById(UPDATE_ID);
+   li.className='list-group-item d-flex justify-content-between';
+   li.innerHTML=`
+              <strong>${UPDATE_OBJ.todoItem}</strong>
+              <div>
+                <i class="fa-regular fa-pen-to-square fa-2x text-primary" onclick="OnEdit(this)"></i>
+                <i class="fa-solid fa-trash fa-2x text-danger" onclick="Onremove(this)"></i>
+              </div>`
+    todoForm.reset();
+    addTodoBtn.classList.remove('d-none');
+    updateTodoBtn.classList.add('d-none');
+    
+    Swal.fire({
+      title: `The todoItem ${UPDATE_OBJ.todoItem} is Updated Successfully!!`,
+      icon: "success",
+      timer: 3000
+    });
+}
+
+
+updateTodoBtn.addEventListener('click',onTodoUpdate)
