@@ -12,7 +12,16 @@
 	<div class="container mt-5">
 	<div class="row">
 		<div class="col-md-6">
-			form
+                <div class="card">
+                    <div class="card-body">
+                     <form action="" id="todoForm">
+                       <label for="todoItem" class="sr-only ">AddTodo</label> 
+                       <input type="text"id='todoItem' class="form-control mb-4" placeholder="Enter todo here....."> 
+                       <button  type="submit"  id="addTodo" class="btn btn-block btn-outline-primary">Add todo</button>
+                       <button type="button" id="updateTodo" class="btn btn-block btn-outline-primary d-none">update Todo</button>
+                     </form>   
+                    </div>
+                </div>
 		</div>
 		<div class="col-md-6">
 		<div class="card">
