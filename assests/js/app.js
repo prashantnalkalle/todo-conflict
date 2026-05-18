@@ -43,14 +43,9 @@ function onTodoUpdate(){
   let GET_INDEX=todoArr.findIndex(t=>t.todoId===UPDATE_ID);
   todoArr[GET_INDEX]=UPDATE_OBJ;
 
-   let li = document.getElementById(UPDATE_ID);
-   li.className='list-group-item d-flex justify-content-between';
-   li.innerHTML=`
-              <strong>${UPDATE_OBJ.todoItem}</strong>
-              <div>
-                <i class="fa-regular fa-pen-to-square fa-2x text-primary" onclick="OnEdit(this)"></i>
-                <i class="fa-solid fa-trash fa-2x text-danger" onclick="Onremove(this)"></i>
-              </div>`
+   let li = document.getElementById(UPDATE_ID).firstElementChild;
+   li.innerText = UPDATE_OBJ.todoItemControl;
+
     todoForm.reset();
     addTodoBtn.classList.remove('d-none');
     updateTodoBtn.classList.add('d-none');
