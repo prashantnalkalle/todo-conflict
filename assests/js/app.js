@@ -52,8 +52,8 @@ function ontodoSubmit(ele){
     li.id=todo_obj.todoId;
     li.innerHTML=`   <strong>${todo_obj.todoItem}</strong>
                         <div>
-                                 <i type="button" onclick="onEdit(this)" class="fa-solid fa-pen-to-square  text-primary fa-2x"></i>
-                                 <i type="button" onclick="onRemove(this)" class="fa-solid fa-trash text-danger fa-2x"></i>
+                                 <i type="button" onclick="OnEdit(this)" class="fa-solid fa-pen-to-square  text-primary fa-2x"></i>
+                                 <i type="button" onclick="Onremove(this)" class="fa-solid fa-trash text-danger fa-2x"></i>
                         </div>`
                         
     todocontainer.append(li);
