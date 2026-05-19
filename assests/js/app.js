@@ -47,8 +47,8 @@ function onTodoUpdate(){
    li.innerText = UPDATE_OBJ.todoItem;
 
     todoForm.reset();
-    addTodoBtn.classList.remove('d-none');
-    updateTodoBtn.classList.add('d-none');
+    addTodo.classList.remove('d-none');
+    updateTodo.classList.add('d-none');
     
     Swal.fire({
       title: `The todoItem ${UPDATE_OBJ.todoItem} is Updated Successfully!!`,
@@ -58,4 +58,4 @@ function onTodoUpdate(){
 }
 
 
-updateTodoBtn.addEventListener('click',onTodoUpdate)
+updateTodo.addEventListener('click',onTodoUpdate)
