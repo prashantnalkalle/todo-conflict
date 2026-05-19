@@ -54,7 +54,7 @@ function Onremove(ele){
      Swal.fire({
         title:`The Todo Item ${REMOVED_TODO[0].todoItem} Removed Successfully !!!!`,
         timer:3000,
-        icons: 'success'
+        icon: 'success'
      })
     }
     
