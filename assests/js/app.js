@@ -57,7 +57,12 @@ function ontodoSubmit(ele){
                         </div>`
                         
     todocontainer.append(li);
+     swal.fire({ 
+           title:'New todo added Successfully ', 
+           icon:'success',
+           timer:3000
 
+     })
 
    todoForm.reset();
 
