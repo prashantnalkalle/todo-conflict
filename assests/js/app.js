@@ -38,19 +38,26 @@ templating(todoArr)
 function Onremove(ele){
   let REMOVE_ID=ele.closest('li').id
   
-
+    let getConfirm=confirm(
+        `Are you sure you want to delete ${REMOVE_ID}`
+    )
   
+    if(getConfirm){
     let getIndex=todoArr.findIndex(todo=>{
       return todo.todoId===REMOVE_ID
     })
+  
 
     let REMOVED_TODO=todoArr.splice(getIndex,1)
     ele.closest('li').remove()
+  
      Swal.fire({
         title:`The Todo Item ${REMOVED_TODO[0].todoItem} Removed Successfully !!!!`,
         timer:3000,
         icons: 'success'
      })
+    }
+    
   
 
 }
