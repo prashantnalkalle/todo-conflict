@@ -1,7 +1,4 @@
 const todocontainer = document.getElementById('todocontainer')
-const addTodo = document.getElementById("addTodo")
-const updateTodo = document.getElementById("updateTodo")
-
 const todoItemControl= document.getElementById('todoItem');
 const todoForm=document.getElementById('todoForm')
 
@@ -37,4 +34,38 @@ function templating(arr){
 }
 templating(todoArr)
 
+function ontodoSubmit(ele){ 
+     console.log(ele);
+    ele.preventDefault()
+    
+    let todo_obj = {
+      todoItem: todoItemControl.value,
+      todoId: Date.now() .toString()
+    }
+    console.log(todo_obj);
+    todoArr.push(todo_obj);
 
+
+    let li =document.createElement('li');
+    li.className= 'list-group-item d-flex justify-content-between';
+    li.id=todo_obj.todoId;
+    li.innerHTML=`   <strong>${todo_obj.todoItem}</strong>
+                        <div>
+                                 <i type="button" onclick="OnEdit(this)" class="fa-solid fa-pen-to-square  text-primary fa-2x"></i>
+                                 <i type="button" onclick="Onremove(this)" class="fa-solid fa-trash text-danger fa-2x"></i>
+                        </div>`
+                        
+    todocontainer.append(li);
+     swal.fire({ 
+           title:'New todo added Successfully ', 
+           icon:'success',
+           timer:3000
+
+     })
+
+   todoForm.reset();
+
+                               
+  
+  }
+  todoForm.addEventListener('submit',ontodoSubmit);
