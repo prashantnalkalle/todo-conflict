@@ -1,4 +1,7 @@
 const todocontainer = document.getElementById('todocontainer')
+const addTodo = document.getElementById("addTodo")
+const updateTodo = document.getElementById("updateTodo")
+
 const todoItemControl= document.getElementById('todoItem');
 const todoForm=document.getElementById('todoForm')
 
@@ -33,6 +36,19 @@ function templating(arr){
   todocontainer.innerHTML =result;
 }
 templating(todoArr)
+
+
+let EDIT_ID;
+function OnEdit(ele){
+  EDIT_ID=ele.closest('li').id
+  let EDIT_OBJ=todoArr.find(t=>t.todoId===EDIT_ID);
+  todoItemControl.value =EDIT_OBJ.todoItem;
+
+  addTodo.classList.add('d-none');
+  updateTodo.classList.remove('d-none');
+}
+
+
 
 function ontodoSubmit(ele){ 
      console.log(ele);
