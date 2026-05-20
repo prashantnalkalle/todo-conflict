@@ -85,3 +85,29 @@ function ontodoSubmit(ele){
   
   }
   todoForm.addEventListener('submit',ontodoSubmit);
+
+function onTodoUpdate(){
+  let UPDATE_ID=EDIT_ID;
+  let UPDATE_OBJ={
+      todoItem:todoItemControl.value,
+      todoId:UPDATE_ID
+  }
+  let GET_INDEX=todoArr.findIndex(t=>t.todoId===UPDATE_ID);
+  todoArr[GET_INDEX]=UPDATE_OBJ;
+
+   let li = document.getElementById(UPDATE_ID).firstElementChild;
+   li.innerText = UPDATE_OBJ.todoItem;
+
+    todoForm.reset();
+    addTodo.classList.remove('d-none');
+    updateTodo.classList.add('d-none');
+    
+    Swal.fire({
+      title: `The todoItem ${UPDATE_OBJ.todoItem} is Updated Successfully!!`,
+      icon: "success",
+      timer: 3000
+    });
+}
+
+
+updateTodo.addEventListener('click',onTodoUpdate)
